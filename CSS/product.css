@@ -1,0 +1,13 @@
+.logo {
+    font-size: 1.5em;
+}
+
+.header-custom {
+    background-color: #e96196;
+    background-image: linear-gradient(315deg, #e96196 0%, #ffffff 85%);
+}
+
+.cartimg {
+    width: 2em;
+    margin-right: 0px;
+}

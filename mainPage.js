@@ -12,7 +12,6 @@ let teddytemplate = (data) => `
 </div>
 `;
 
-
 //making API request
 function makeRequest() {
     return new Promise((resolve, reject) => {
@@ -30,16 +29,9 @@ function makeRequest() {
                         document.querySelector('.card-img-top').setAttribute("src", teddy.imageUrl);
 
                         document.querySelector('.getSpecificItem').addEventListener('click', () => {
-                            if (localStorage.getItem("teddy_key") !== teddy._id ){
-                                localStorage.removeItem("teddy_key");
-                                localStorage.setItem("teddy_key" , teddy._id);
-                                location.href = "./product.html";
-                            }
-                        })
+                            localStorage.setItem("teddy_key" , teddy._id);
+                            location.href = "./product.html";})
                     });
-
-                    
-
 
 // HERE I STOPPED WORKING IWTH THE ELEMENTS
                 } else {

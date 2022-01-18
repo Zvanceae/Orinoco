@@ -1,12 +1,109 @@
+<!doctype html>
+<html>
+<head>
+<title>Orinoco</title>
+<meta name="description" content="Cart Page">
+<meta name="keywords" content="html tutorial template">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link rel="stylesheet" href="./CSS/product.css">
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light header-custom">
+    <a class="navbar-brand lead font-weight-bold logo" href="#">Orincoco</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+      
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+        </li>
+         <li class="nav-item active">
+            <a class="nav-link" href="#">Log in</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="cartPage.html"><img class="cartimg" src="https://img.icons8.com/carbon-copy/100/000000/favorite-cart.png"/></a>
+          </li>
+      </ul>
+    </div>
+  </nav>
 
-    <!doctype html>
-    <html>
-    <head>
-    <title>Our Funky HTML Page</title>
-    <meta name="description" content="Our first page">
-    <meta name="keywords" content="html tutorial template">
-    </head>
-    <body>
+      <!-- Product list -->
+  <div class="col itemHolder p-2 d-flex flex-wrap justify-content-around"> 
+  </div>
+
+  <div class="totalCart my-3 mx-auto">
+    <h5 id="total-el" class="pl-3">Total Cost: </h5>
+  </div>
+
+  <!-- Personal details -->
+
+  <form class="form" id="form">
+    <div class="form-group col-md-4">
+      <label for="inputPassword4">Name</label>
+      <input type="text" class="form-control" id="fname" placeholder=" ">
+    </div>
+    <div class="form-group col-md-4">
+      <label for="inputEmail4">Email</label>
+      <input type="email" class="form-control" id="email" placeholder="exp@example.com">
+    </div>
+    <div class="form-group col-md-6">
+      <label for="inputAddress">Address</label>
+      <input type="text" class="form-control" id="address" placeholder="1234 Main St">
+    </div>
+    <div class="form-group col-md-6">
+      <label for="inputAddress2">Address 2</label>
+      <input type="text" class="form-control" id="address2" placeholder="Apartment, studio, or floor">
+    </div>
+    <div class="form-row col-md-6">
+      <div class="form-group col-md-6">
+        <label for="inputCity">City</label>
+        <input type="text" class="form-control" id="city">
+      </div>
+      <div class="form-group col-md-4">
+        <label for="inputState">State</label>
+        <input type="text" class="form-control" id="state">
+      </div>
+      <div class="form-group col-md-2">
+        <label for="inputZip">Zip</label>
+        <input type="text" class="form-control" id="zip">
+      </div>
+    </div>
+
+        <!-- Payment details-->
+    <h3>Payment</h3>
         
-    </body>
-    </html>
+    <div class="form-group col-md-4">
+      <label for="cname">Name on Card</label>
+      <input type="text" id="cname" class="form-control" name="cardname" placeholder="John More Doe">
+    </div>
+    <div class="form-group col-md-4">
+      <label for="ccnum">Credit card number</label>
+      <input type="text" id="ccnum" class="form-control" name="cardnumber" placeholder="1111-2222-3333-4444">
+    </div>
+    <div class="form-group col-md-2">
+      <label for="expdate">Exp Date</label>
+      <input type="text" class="form-control" id="expdate" placeholder="MM / YY">
+    </div>
+    <div class="form-group col-md-2">
+      <label for="cvv">CVV</label>
+      <input type="text" class="form-control" id="CVV" placeholder="CVV">
+    </div>
+    <div id="error"></div>
+    <div class="col-md-6 d-flex flex-column mt-3">
+      <label>
+        <input type="checkbox" checked="checked" name="sameadr"> Shipping address same as billing
+      </label>
+      <input type="submit" value="Continue to checkout" class="btn mx-auto my-2">
+    </div>
+  </form>
+
+    <script scr="product.js"></script>
+    <script src="cartpage.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    
+</body>
+</html>
