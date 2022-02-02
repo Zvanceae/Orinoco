@@ -43,11 +43,6 @@ const email = document.getElementById("email");
 const adr = document.getElementById("address");
 const city = document.getElementById("city");
 const state = document.getElementById("state");
-const zip = document.getElementById("zip");
-const cname = document.getElementById("cname");
-const ccnum = document.getElementById("ccnum");
-const expdate = document.getElementById("ExpDate");
-const cvv = document.getElementById("cvv");
 const error = document.getElementById("error");
 
 
@@ -63,32 +58,28 @@ form.addEventListener('submit', (e) => {
   {
     messages.push("You have entered an invalid email address!")
   }
-  //Name on card
-  if (cname.value === '' || cname.value == null) {
-    messages.push('Name on card is required')
+  //Address
+  if (adr.value === '' || adr.value == null) {
+    messages.push('Address is required')
   }
-  //Card number
-  let cardformat = /^(?:4[0-9]{12}(?:[0-9]{3})?|[25][1-7][0-9]{14}|6(?:011|5[0-9][0-9])[0-9]{12}|3[47][0-9]{13}|3(?:0[0-5]|[68][0-9])[0-9]{11}|(?:2131|1800|35\d{3})\d{11})$/;
-  if(!ccnum.value.match(cardformat))
-  {
-    messages.push("You have entered an invalid card number!")
+  //City
+  if (city.value === '' || city.value == null) {
+    messages.push('City is required')
   }
-  //Exp date
-  let expiredate = /^(0[1-9]|1[0-2])\/?([0-9]{4}|[0-9]{2})$/;
-  if(!expdate.value.match(expiredate))
-  {
-    messages.push("You have entered an incorect expiry date!")
-  }
-  //CVV
-  let cardcvv = /^[0-9]{3,4}$/;
-  if(!cvv.value.match(cardcvv))
-  {
-    messages.push("You have entered an invalid CVV card number!")
+  //State
+  if (state.value === '' || state.value == null) {
+    messages.push('State is required')
   }
   //Message display
   if (messages.length > 0) {
     e.preventDefault()
     error.innerText = messages.join('\n ')
   }
+  else{
+    redirect();
+  }
 });
 
+function redirect(){
+  window.location.replace = "../JWDP5-master/product.html";
+}

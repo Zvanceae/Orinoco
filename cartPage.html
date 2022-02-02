@@ -39,7 +39,7 @@
 
   <!-- Personal details -->
 
-  <form class="form" id="form">
+  <form class="form" id="form" method="POST">
     <div class="form-group col-md-4">
       <label for="inputPassword4">Name</label>
       <input type="text" class="form-control" id="fname" placeholder=" ">
@@ -69,27 +69,7 @@
         <label for="inputZip">Zip</label>
         <input type="text" class="form-control" id="zip">
       </div>
-    </div>
-
-        <!-- Payment details-->
-    <h3>Payment</h3>
-        
-    <div class="form-group col-md-4">
-      <label for="cname">Name on Card</label>
-      <input type="text" id="cname" class="form-control" name="cardname" placeholder="John More Doe">
-    </div>
-    <div class="form-group col-md-4">
-      <label for="ccnum">Credit card number</label>
-      <input type="text" id="ccnum" class="form-control" name="cardnumber" placeholder="1111-2222-3333-4444">
-    </div>
-    <div class="form-group col-md-2">
-      <label for="expdate">Exp Date</label>
-      <input type="text" class="form-control" id="expdate" placeholder="MM / YY">
-    </div>
-    <div class="form-group col-md-2">
-      <label for="cvv">CVV</label>
-      <input type="text" class="form-control" id="CVV" placeholder="CVV">
-    </div>
+    </div> 
     <div id="error"></div>
     <div class="col-md-6 d-flex flex-column mt-3">
       <label>
