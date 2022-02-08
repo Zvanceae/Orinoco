@@ -12,6 +12,7 @@ let teddytemplate = (data) => `
 </div>
 `;
 
+
 //making API request
 function makeRequest() {
     return new Promise((resolve, reject) => {
@@ -22,6 +23,7 @@ function makeRequest() {
             if (apiRequest.readyState === 4) {
                 if (apiRequest.status === 200) {
                     resolve(JSON.parse(apiRequest.response));
+
 // FROM HERE I START WORKING WITH THE ELEMENTS
                     let res = JSON.parse(apiRequest.response);
                     res.forEach(teddy => {

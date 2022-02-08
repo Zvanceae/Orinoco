@@ -4,7 +4,6 @@ let url = new URL('http://localhost:3000/api/teddies/' + teddySingle);
 const productTitle = document.querySelector('.product-title');
 const description = document.querySelector('.description');
 const price = document.querySelector('.price');
-const colors = document.querySelector('.colors');
 const imageTeddy = document.querySelector('.imageTeddy');
 
 
@@ -15,15 +14,22 @@ fetch(url)
     })
     .then(data => {
         data.colors.forEach(div => {
-            const colorDiv = '<div class="teddyColor">${div.colors}</div>';
-            colors.insertAdjacentHTML('afterbegin', colorDiv);
-            colors.textContent = data.colors;
+
+            var opt = document.createElement("option");
+        
+            // Add an Option object to Drop Down/List Box
+            document.getElementById("colorsDropdown").options.add(opt);
+            // Assign text and value to Option object
+            opt.text = div;
+            opt.value = div;
         });
         productTitle.textContent = data.name;
         description.textContent = data.description;
-        price.textContent = data.price;
+        price.textContent = '$' + data.price;
         imageTeddy.setAttribute("src", data.imageUrl);
         imageTeddy.setAttribute('class', 'img-fluid');
+
+        
 
     // Cart page
         let storageTeddy = localStorage.getItem('teddy_key');
@@ -31,6 +37,7 @@ fetch(url)
 
         let addToCart = document.querySelector('.btn');
         let quantity = document.querySelector('.form-control');
+        var selectedColor = document.getElementById("colorsDropdown");
 
         addToCart.addEventListener('click', () => {
             if (quantity.value > 0) {
@@ -39,9 +46,19 @@ fetch(url)
                     qty: quantity.value,
                     productTitle: productTitle.textContent,
                     price: price.textContent,
-                    imageTeddy: data.imageUrl
+                    imageTeddy: data.imageUrl,
+                    teddyColor: selectedColor.options[selectedColor.selectedIndex].text
                 };
                 // Local storage
+                // if (localStorage) {
+                //     const resultFind = localStorage.find(
+                //       (element) => element.id === id && element.color === color);
+                //     if (resultFind) {
+                //       let newProductQuantity = parseInt(localStorage.quantity) + parseInt(resultFind.quantity);
+                //       resultFind.quantity = newProductQuantity;
+                //       localStorage.setItem("productsInCart", JSON.stringify(localStorage));
+                //       console.log(productCart);
+                //     }
                 if (localStorage.getItem('cart') === null) {
 
                     items.push(objectToCart);
@@ -63,8 +80,3 @@ fetch(url)
         
 
     })
-    
-
-
-
-

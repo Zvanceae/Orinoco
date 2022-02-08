@@ -3,6 +3,7 @@ let template = (data) => `
 <img src="" class="card-img-top imageContainer img-thumbnail" alt="">
  <h5 class="card-title">${data.productTitle}</h5>
  <h8 class="card-text">Price: $${data.price}</h8>
+ <h8 class="card-text">Colour: ${data.teddyColor}</h8>
  <h8 class="card-text">Qty: ${data.qty}</h8>
  <a href="#" class="btn btn-danger classReme mt-auto">Remove</a>
 </div>
@@ -46,7 +47,7 @@ const state = document.getElementById("state");
 const error = document.getElementById("error");
 
 
-form.addEventListener('submit', (e) => {
+function redirect (){
   //Name
   let messages = []
   if (fname.value === '' || fname.value == null) {
@@ -56,7 +57,7 @@ form.addEventListener('submit', (e) => {
   let mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
   if(!email.value.match(mailformat))
   {
-    messages.push("You have entered an invalid email address!")
+    messages.push("You have entered an invalid email address")
   }
   //Address
   if (adr.value === '' || adr.value == null) {
@@ -72,14 +73,23 @@ form.addEventListener('submit', (e) => {
   }
   //Message display
   if (messages.length > 0) {
-    e.preventDefault()
     error.innerText = messages.join('\n ')
   }
+  //Redirect
   else{
-    redirect();
-  }
-});
+    window.location.href = "orderConfirmation.html"
+   }
+   };
 
-function redirect(){
-  window.location.replace = "../JWDP5-master/product.html";
-}
+   //Order number
+  function orderNumber() {
+      let dateStamp = Date.now().toString();
+      let orderConfirmation = document.getElementById('orderNo');
+      if (localStorage.length > 0) {
+      orderConfirmation.innerHTML += `${dateStamp}-${localStorage.length}`;
+      } else {
+          orderConfirmation.innerHTML = 'Your cart is empty, please select the products you want to purches and then check out'
+      };
+      localStorage.clear();
+  };
+
