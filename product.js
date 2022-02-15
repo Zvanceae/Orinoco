@@ -30,7 +30,6 @@ fetch(url)
         imageTeddy.setAttribute('class', 'img-fluid');
 
         
-
     // Cart page
         let storageTeddy = localStorage.getItem('teddy_key');
         let items = [];
@@ -45,38 +44,34 @@ fetch(url)
                     teddyKey: storageTeddy,
                     qty: quantity.value,
                     productTitle: productTitle.textContent,
-                    price: price.textContent,
+                    price: data.price,
                     imageTeddy: data.imageUrl,
                     teddyColor: selectedColor.options[selectedColor.selectedIndex].text
                 };
+
                 // Local storage
-                // if (localStorage) {
-                //     const resultFind = localStorage.find(
-                //       (element) => element.id === id && element.color === color);
-                //     if (resultFind) {
-                //       let newProductQuantity = parseInt(localStorage.quantity) + parseInt(resultFind.quantity);
-                //       resultFind.quantity = newProductQuantity;
-                //       localStorage.setItem("productsInCart", JSON.stringify(localStorage));
-                //       console.log(productCart);
-                //     }
-                if (localStorage.getItem('cart') === null) {
+                let productCart = JSON.parse(localStorage.getItem("cart"));
 
-                    items.push(objectToCart);
-                    localStorage.setItem('cart', JSON.stringify(items));
-                }
-                else {
-                    let parsed = JSON.parse(localStorage.getItem('cart')); //retrive the data
-                    parsed.push(objectToCart);
-                    localStorage.setItem('cart', JSON.stringify(parsed));
-                }
-            }
-            else if (quantity.value < 1) {
-                alert('Please enter product quantity');
-            }
-        });
-
-
-        let parsedObjs = JSON.parse(localStorage.getItem('cart'));
-        
-
-    })
+      //Check if the product is the same    
+      if (productCart) {
+        const resultFind = productCart.find(
+          (element) => element.teddyKey === storageTeddy && element.teddyColor === selectedColor.options[selectedColor.selectedIndex].text);
+        if (resultFind) {
+          let newProductQuantity = parseInt(objectToCart.qty) + parseInt(resultFind.qty);
+          resultFind.qty = newProductQuantity;
+          localStorage.setItem("cart", JSON.stringify(productCart));
+          console.log(productCart);
+        } else {
+          productCart.push(objectToCart);
+          localStorage.setItem("cart", JSON.stringify(productCart));
+          console.log(productCart);
+        }
+      } else {
+        productCart = [];
+        productCart.push(objectToCart);
+        localStorage.setItem("cart", JSON.stringify(productCart));
+        console.log(productCart);
+      }
+    }
+  });
+ });

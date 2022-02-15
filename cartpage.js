@@ -17,7 +17,7 @@ let total = 0;
 parsedObjs.forEach(item => {
   total += parseFloat(item.price)*parseFloat(item.qty);
 })
-totalEl.textContent += "$" + total;
+totalEl.textContent += '$' + total;
 
 
 
