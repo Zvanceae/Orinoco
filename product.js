@@ -1,3 +1,4 @@
+/*jshint esversion: 6 */ //Minim version to be used by the JS engine
 const teddySingle = localStorage.getItem("teddy_key");
 let url = new URL('http://localhost:3000/api/teddies/' + teddySingle);
 
@@ -32,7 +33,6 @@ fetch(url)
         
     // Cart page
         let storageTeddy = localStorage.getItem('teddy_key');
-        let items = [];
 
         let addToCart = document.querySelector('.btn');
         let quantity = document.querySelector('.form-control');

@@ -1,13 +1,14 @@
+/*jshint esversion: 6 */ //Minim version to be used by the JS engine
 const api = 'http://localhost:3000/api/teddies';
 
 let parentContainer = document.querySelector('#main_container');
 let teddytemplate = (data) => `
-<div class="m-3 card teddy_main" style="width: 18rem;">
-<img class="card-img-top" src="" alt="Card image cap">
+<div class="m-3 card teddy_main getSpecificItem" style="width: 18rem;">
+<img class="card-img-top " src="" alt="Card image cap">
 <div class="card-body">
   <h5 class="card-title">Teddy name: ${data.name}</h5>
   <p class="card-text">Color: ${data.colors.length}</p>
-  <button type="button" class="getSpecificItem btn btn-secondary">${data.price} $</button>
+  <button type="button" class=" btn btn-secondary">${data.price} $</button>
 </div>
 </div>
 `;
@@ -32,7 +33,7 @@ function makeRequest() {
 
                         document.querySelector('.getSpecificItem').addEventListener('click', () => {
                             localStorage.setItem("teddy_key" , teddy._id);
-                            location.href = "./product.html";})
+                            location.href = "./product.html";});
                     });
 
 // HERE I STOPPED WORKING IWTH THE ELEMENTS
@@ -42,7 +43,7 @@ function makeRequest() {
                     console.log('Oooops, something went wrong');
                 }
             }
-        }
+        };
     });
-};
+}
 makeRequest();
