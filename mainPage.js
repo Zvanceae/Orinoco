@@ -36,10 +36,10 @@ function makeRequest() {
                             location.href = "./product.html";});
                     });
 
-// HERE I STOPPED WORKING IWTH THE ELEMENTS
+// HERE I STOPPED WORKING WiTH THE ELEMENTS
                 } else {
-                    reject('Oooops, something went wrong');
-                    document.querySelector('main').outerHTML = '<h1 class="text-center m-2"> Oooops, something went wrong... </h1>';
+                    reject('Something went wrong, please try later');
+                    document.getElementById('main_container').outerHTML = '<h1 class="text-center m-2"> Something went wrong, please try later </h1>';
                     console.log('Oooops, something went wrong');
                 }
             }
